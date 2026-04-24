@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Showroom</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
+<style>
+  body {
+    background-color:#f5f5dc; /* light modern background */
+  }
+</style>
+</style>
+
+</head>
+<body>
+    <!-- Navbar -->
+
+<nav class="navbar navbar-light bg-white">
+  <div class="container-fluid">
+    <a class="navbar-brand">CARSZONE</a>
+    <form class="d-flex">
+      <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+      <button class="btn btn-outline-success" type="submit">Search</button>
+    </form>
+  </div>
+</nav>
+<!-- Carousel -->
+
+<div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div class="carousel-item active">
+      <img src="https://images.pexels.com/photos/3764984/pexels-photo-3764984.jpeg?cs=srgb&dl=pexels-svjae-3764984.jpg&fm=jpg" class="d-block w-100" style="height:400px; object-fit:cover;" alt="Luxury Cars">
+    </div>
+    <div class="carousel-item">
+      <img src="https://images.unsplash.com/photo-1511919884226-fd3cad34687c" class="d-block w-100" style="height:400px; object-fit:cover;" alt="Sports Cars">
+    </div>
+    <div class="carousel-item">
+      <img src="https://w3.pngaura.com/assets/images/posts/original/67b4da576eec9_2-(1859).jpg" class="d-block w-100" style="height:400px; object-fit:cover;" alt="Cars">
+    </div>
+  </div>
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon"></span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
+    <span class="carousel-control-next-icon"></span>
+  </button>
+</div>
+<!-- Grid & Cards Section -->
+
+<div class="container my-5 p-4 rounded shadow" style="background-color:grey;">
+  <div class="row">
+    <div class="col-md-4 mb-4">
+     <div class="card h-100 shadow" style="background-color:white ;">
+        <img src="https://img.freepik.com/premium-photo/bmw-various-models_551707-84790.jpg?semt=ais_hybrid&w=740&q=80" class="card-img-top" style="height:200px; object-fit:cover;" alt="BMW M5">
+        <div class="card-body text-center">
+          <h5 class="card-title">BMW M5</h5>
+          <p class="card-text">High-performance luxury sports car</p>
+          <p class="fw-bold text-dark">₹1.5 Cr</p>
+          <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#bmwModal">
+  View Details
+</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow">
+        <img src="https://c4.wallpaperflare.com/wallpaper/765/851/733/tesla-model-s-novitec-performance-kit-4k-wallpaper-preview.jpg" class="card-img-top" style="height:200px; object-fit:cover;" alt="Tesla Model S">
+        <div class="card-body text-center">
+          <h5 class="card-title">Tesla Model S</h5>
+          <p class="card-text">Premium electric car with high performance</p>
+          <p class="fw-bold text-dark">₹1.3 Cr</p>
+           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#teslaModal">
+  View Details
+</button>       </div>
+      </div>
+    </div>
+
+    <div class="col-md-4 mb-4">
+      <div class="card h-100 shadow">
+        <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a" class="card-img-top" style="height:200px; object-fit:cover;" alt="Audi R8">
+        <div class="card-body text-center">
+          <h5 class="card-title">Audi R8</h5>
+          <p class="card-text">Premium supercar with stunning design.</p>
+          <p class="fw-bold text-dark">₹2.3 Cr</p>
+           <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#audiModal">
+  View Details
+</button>      </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Buttons Section -->
+
+<div class="container text-center mb-5">
+
+  <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#buyModal">
+    Buy Now
+  </button>
+
+  <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#testDriveModal">
+    Book Test Drive
+  </button>
+
+  <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#offerModal">
+    View Offers
+  </button>
+
+  <button class="btn btn-dark m-2" data-bs-toggle="modal" data-bs-target="#contactModal">
+    Contact Details
+  </button>
+
+</div>
+<!-- MODALS -->
+
+<div class="modal fade" id="bmwModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5>BMW M5 Details</h5></div>
+        <div class="modal-body">
+        Engine: 3.0L Twin Turbo<br>
+        Top Speed: 250 km/h<br>
+        Mileage: 10 km/l
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="teslaModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5>Tesla Model S Details</h5></div>
+     <div class="modal-body">
+        Range: 600 km<br>
+        Autopilot: Yes<br>
+        Range: 0-100km/2.1 sec
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="audiModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header"><h5>Audi R8 Details</h5></div>
+      <div class="modal-body">
+        Engine: V10<br>
+        Top Speed: 330 km/h<br>
+        Mileage: 8 km/l
+      </div>
+
+    </div>
+  </div>
+</div>
+<!-- Buy Now Modal -->
+<div class="modal fade" id="buyModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Buy Car</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Thank you! Our team will contact you soon.
+      </div>
+      </div>
+  </div>
+</div>
+
+      <!-- Test Drive Modal -->
+
+<div class="modal fade" id="testDriveModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Book Test Drive</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Test drive booked successfully!
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Offers Modal -->
+
+<div class="modal fade" id="offerModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Offers</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Get up to 10% discount on your Dream cars!
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Contact Modal -->
+
+<div class="modal fade" id="contactModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5>Contact Dealer</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body">
+        Phone: 8765439090<br>
+        Email: carszone@gmail.com
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Footer -->
+
+<footer class="bg-dark text-white text-center py-3">
+  <p class="mb-0">&copy; Thankyou for visiting CARSZONE!! </p>
+</footer>
+
+</body>
+</html>

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PRACTICAL 11</title>
+    <style>
+        :root {
+            --primary: #2563eb;
+            --bg:lightyellow;
+            --card: #ffffff;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color:lightyellow;
+            color: #334155;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+        }
+
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .api-section {
+            background:lightblue;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            margin-bottom: 30px;
+        }
+
+        h2 {
+            margin-top: 0;
+            color:;
+            border-bottom: 2px solid black;
+            padding-bottom: 10px;
+        }
+
+        /* Drag and Drop Styles */
+        .drop-zone-container {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .box {
+            width: 100px;
+            height: 100px;
+            background-color:green;
+            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: grab;
+            border-radius: 8px;
+            font-weight: bold;
+        }
+
+        .drop-zone {
+            width: 150px;
+            height: 150px;
+            border: 3px dashed #cbd5e1;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: 0.3s;
+        }
+
+        .drop-zone.over {
+            background-color: #dbeafe;
+            border-color: var(--primary);
+        }
+
+        /* Web Storage Styles */
+        input {
+            padding: 8px;
+            border: 1px solid black;
+            border-radius: 4px;
+            width: 200px;
+        }
+
+        button {
+            padding: 8px 16px;
+            background: var(--primary);
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover { opacity: 0.9; }
+
+        .status {
+            margin-top: 10px;
+            font-weight: bold;
+            color: #059669;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>HTML5 API Demonstration</h1>
+        <p>Interactive playground for modern web features.</p>
+    </header>
+
+    <section class="api-section">
+        <h2>1. Drag & Drop API</h2>
+        <p>Grab the blue square and move it into the dashed box.</p>
+        <div class="drop-zone-container">
+            <div id="drag-item" draggable="true" class="box">DRAG ME</div>
+            <div id="drop-target" class="drop-zone">DROP HERE</div>
+        </div>
+    </section>
+
+    <section class="api-section">
+        <h2>2. Geolocation API</h2>
+        <button onclick="getLocation()">Get My Coordinates</button>
+        <div id="geo-display" class="status">Click the button to see your location...</div>
+    </section>
+
+    <section class="api-section">
+        <h2>3. Web Storage API</h2>
+        <p>Enter your name. It will persist even if you refresh the page.</p>
+        <input type="text" id="name-input" placeholder="Enter your name">
+        <button onclick="saveName()">Save Name</button>
+        <button onclick="clearName()" style="background:red;">Clear</button>
+        <div id="storage-display" class="status"></div>
+    </section>
+</div>
+
+<script>
+    /* --- Drag and Drop Logic --- */
+    const dragItem = document.getElementById('drag-item');
+    const dropTarget = document.getElementById('drop-target');
+
+    dragItem.addEventListener('dragstart', (e) => {
+        e.dataTransfer.setData('text/plain', e.target.id);
+    });
+
+    dropTarget.addEventListener('dragover', (e) => {
+        e.preventDefault(); // Necessary to allow a drop
+        dropTarget.classList.add('over');
+    });
+
+    dropTarget.addEventListener('dragleave', () => {
+        dropTarget.classList.remove('over');
+    });
+
+    dropTarget.addEventListener('drop', (e) => {
+        e.preventDefault();
+        dropTarget.classList.remove('over');
+        const id = e.dataTransfer.getData('text');
+        const draggableElement = document.getElementById(id);
+        dropTarget.appendChild(draggableElement);
+    });
+
+    /* --- Geolocation Logic --- */
+    function getLocation() {
+        const display = document.getElementById('geo-display');
+        if (navigator.geolocation) {
+            display.innerText = "Locating...";
+            navigator.geolocation.getCurrentPosition(
+                (position) => {
+                    display.innerText = `Latitude: ${position.coords.latitude.toFixed(4)}°, 
+                                        Longitude: ${position.coords.longitude.toFixed(4)}°`;
+                },
+                (error) => {
+                    display.innerText = `Error: ${error.message}`;
+                }
+            );
+        } else {
+            display.innerText = "Geolocation is not supported by this browser.";
+        }
+    }
+
+    /* --- Web Storage Logic --- */
+    function saveName() {
+        const name = document.getElementById('name-input').value;
+        if (name) {
+            localStorage.setItem('username', name);
+            displayStoredName();
+        }
+    }
+
+    function clearName() {
+        localStorage.removeItem('username');
+        document.getElementById('name-input').value = '';
+        displayStoredName();
+    }
+
+    function displayStoredName() {
+        const storedName = localStorage.getItem('username');
+        const display = document.getElementById('storage-display');
+        display.innerText = storedName ? `Hello, ${storedName}! Welcome back.` : "No name stored.";
+    }
+
+    // Run on page load
+    displayStoredName();
+</script>
+
+</body>
+</html>

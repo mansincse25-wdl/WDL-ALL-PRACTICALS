@@ -1,0 +1,63 @@
+<html>
+<head>
+        <title>Practical 10 - HTML Iframes</title>
+    <style>
+        body {
+            font-family: Times New Roman, sans-serif;
+            line-height: 1.6;
+            margin: 20px;
+            background-color: #f4f4f4;
+        }
+        h1, h2 {
+            color: red;
+            text-align: center;
+        }
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 30px;
+        }
+        iframe {
+            border: 2px solid #555;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+    </style>
+</head>
+<body>
+
+ <h1>Practical No. 10</h1>
+<h3>Name: Mansi Nagbhidkar</h2>
+<h3>USN: CS25154</h2>
+
+    <hr>
+
+    <div class="container">
+        
+        <section>
+            <h2>1. Embedded Google Map</h2>
+            <iframe 
+                src="https://www.google.com/maps/embed" 
+                width="500" 
+                height="350" 
+                style="border:0;" 
+                allowfullscreen="" 
+                loading="lazy">
+            </iframe>
+        </section>
+
+        <section>
+            <h2>2. Embedded External Page</h2>
+            <iframe 
+                src="https://en.wikipedia.org/wiki/Main_Page" 
+                width="600" 
+                height="500" 
+                title="External Page Demo">
+            </iframe>
+        </section>
+
+    </div>
+
+</body>
+</html>
